@@ -8,15 +8,15 @@ use Tests\TestCase;
 
 class HomeTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
+    public function testStatusCode()
     {
-        $response = $this->get('/');
-
+        $response = $this->get('/home');
         $response->assertStatus(200);
+    }
+
+    public function testBody()
+    {
+        $response = $this->get('/home');
+        $response->assertSeeText("こんにちは");
     }
 }
