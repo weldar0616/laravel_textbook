@@ -44,6 +44,11 @@ services:
             test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
             retries: 3
             timeout: 5s
+    mailhog:
+        image: mailhog/mailhog:latest
+        ports:
+            - "8025:8025"
+            - "1025:1025"
 networks:
     sail:
         driver: bridge
